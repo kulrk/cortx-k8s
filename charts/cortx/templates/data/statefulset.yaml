@@ -133,7 +133,7 @@ spec:
             - /bin/sh
           args:
             - -c
-            - /opt/seagate/cortx/motr/bin/motr_setup start --services ioservice --idx $IO_INDEX --config $CORTX_CONFSTORE_URL
+            - /opt/seagate/cortx/motr/bin/motr_setup start --services ioservice --idx $IO_INDEX --config $CORTX_CONFSTORE_URL; /bin/bash -c '[ -e /etc/cortx/proc_delay ] && sleep $(cat /etc/cortx/proc_delay)';
           {{- end }}
           {{- include "cortx.containers.dataBlockDeviceVolumes" ((index $cvgGroup $cvgIndex) | list) | nindent 10 }}
           volumeMounts:
