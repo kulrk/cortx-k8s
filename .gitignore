@@ -10,3 +10,6 @@ charts/cortx/charts
 
 # MacOS
 .DS_Store
+
+#pycharm
+.idea
