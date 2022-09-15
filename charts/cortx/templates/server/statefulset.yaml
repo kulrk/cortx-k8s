@@ -70,7 +70,7 @@ spec:
             - /bin/sh
           args:
             - -c
-            - /opt/seagate/cortx/rgw/bin/rgw_setup start --config $CORTX_CONFSTORE_URL
+            - /opt/seagate/cortx/rgw/bin/rgw_setup start --config $CORTX_CONFSTORE_URL; /bin/bash -c '[ -e /etc/cortx/proc_delay ] && sleep $(cat /etc/cortx/proc_delay)';
           {{- end }}
           volumeMounts:
             - name: cortx-configuration
